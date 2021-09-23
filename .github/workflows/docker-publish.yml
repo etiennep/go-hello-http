@@ -52,7 +52,7 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=sha,format=long
+            type=sha
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
@@ -67,7 +67,7 @@ jobs:
       # Update the image tag in the deployment
       - name: Update Kubernetes deployment
         run: |
-          ./update-deployment.sh $${{ github.sha }}
+          ./update-deployment.sh
       
       - name: Push updated deployment specs
         if: github.event_name != 'pull_request'
