@@ -6,8 +6,6 @@ name: Docker
 # documentation.
 
 on:
-#   schedule:
-#     - cron: '15 19 * * *'
   push:
     branches: [ main ]
     # Publish semver tags as releases.
@@ -80,7 +78,4 @@ jobs:
           destination-github-username: 'etiennep'
           destination-repository-name: 'k8s-go-hello-http'
           user-email: etiennep73@gmail.com
-          commit-message: See ORIGIN_COMMIT from $GITHUB_REF
           target-branch: main
-      - name: Test get variable exported by push-to-another-repository
-        run: echo $DESTINATION_CLONED_DIRECTORY
