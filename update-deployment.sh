@@ -1,6 +1,7 @@
 #!/bin/sh
+SHORT_COMMIT_HASH=$(git rev-parse --short HEAD)
+TAG="sha-${SHORT_COMMIT_HASH}"
 
-TAG=$1
 
 rm -rf output
 mkdir -p output/workloads
