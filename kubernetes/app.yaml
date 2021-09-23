@@ -1,5 +1,4 @@
 ---
-# Source: go-hello-http/templates/service.yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -16,7 +15,6 @@ spec:
   selector:
     app.kubernetes.io/name: go-hello-http
 ---
-# Source: go-hello-http/templates/deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:

@@ -64,7 +64,9 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
       
+      # Update the image tag in the deployment
       - name: Update Kubernetes deployment
+        if: github.event_name != 'pull_request'
         run: |
           ./update-deployment.sh $${{ github.sha }}
 
