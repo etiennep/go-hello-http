@@ -78,7 +78,7 @@ jobs:
         with:          
           source-directory: 'output'
           destination-github-username: 'etiennep'
-          destination-repository-name: 'k8s-${{ github.repository }}'
+          destination-repository-name: 'k8s-go-hello-http'
           user-email: etiennep73@gmail.com
           commit-message: See ORIGIN_COMMIT from $GITHUB_REF
           target-branch: main
