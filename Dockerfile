@@ -1,9 +1,14 @@
-FROM golang:1.17
+FROM golang:1.17 AS builder
 
 WORKDIR /go/src/app
-COPY . .
+COPY go.mod .
+COPY *.go .
 
-RUN go get -d -v ./...
-RUN go install -v ./...
+RUN CGO_ENABLED=0 GOOS=linux go build -v ./...
 
-CMD ["go-hello-http"]
+FROM scratch
+
+WORKDIR /app/
+CMD ["./go-hello-http"]
+
+COPY --from=builder /go/src/app/go-hello-http ./
