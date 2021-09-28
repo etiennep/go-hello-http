@@ -38,7 +38,7 @@ Once the docker image has been published, the workflow updates the image tag in 
 
 Since this is a rudimentary example, we use `sed` to replace the `:latest` tag with the docker image tag used in the previous steps. 
 
-Deployment spec could also be rendered other tools such as [Helm](https://helm.sh/) and [Kustomize](https://kustomize.io/. All you need is a way to create static Kubernetes configuration yaml.
+Deployment spec could also be rendered other tools such as [Helm](https://helm.sh/) and [Kustomize](https://kustomize.io/). All you need is a way to create static Kubernetes configuration yaml.
 
 Once the deployment specs have been updated and re-rendered, they are committed to the [configuration repository](https://github.com/etiennep/k8s-go-hello-http).
 
