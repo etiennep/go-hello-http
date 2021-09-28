@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: go-hello-http
+  namespace: argocd
+spec:
+  generators:
+  - list:
+      elements:
+      - cluster: minikube
+        url: https://kubernetes.default.svc
+  template:
+    metadata:
+      annotations:
+        notifications.argoproj.io/subscribe.on-deployed.github: ""
+      name: '{{cluster}}-go-hello-http'
+    spec:
+      destination:
+        namespace: default
+        server: '{{url}}'
+      project: default
+      source:
+        path: workloads
+        repoURL: https://github.com/etiennep/k8s-go-hello-http.git
+        targetRevision: HEAD
+      syncPolicy:
+        automated: {}
